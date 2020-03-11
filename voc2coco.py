@@ -94,7 +94,7 @@ def convert(xml_list, xml_dir, json_file):
             json_dict['annotations'].append(ann)
             bnd_id = bnd_id + 1
 
-    for cate, cid in categories.items():
+    for cate, cid in sorted(categories.items(), key=lambda item: item[1]):
         cat = {'supercategory': 'none', 'id': cid, 'name': cate}
         json_dict['categories'].append(cat)
     json_fp = open(json_file, 'w')
